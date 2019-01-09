@@ -100,3 +100,4 @@ legend('topleft', legend = c('P for goodness of fit 0.679'), bty = 'n', cex = .6
 
 
 
+
