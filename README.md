@@ -64,7 +64,9 @@ predRisk10 <- predRisk(riskmodel10)
 rangeaxis <- c(0,1)
 groups <- 10
 plotCalibration(data=data, cOutcome=cOutcome, predRisk=predRisk1, groups=groups, rangeaxis=rangeaxis, plottitle = 'Model 1 (Without GRS)')
-legend('topleft', legend = c('P for goodness of fit 0.679'), bty = 'n', cex = .6, inset = .01)
+legend('topleft', legend = c('P for goodness of fit 0.679'), bty = 'n', cex = .7, inset = .01)
+par(opar)
+
 
 
 
