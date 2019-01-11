@@ -65,9 +65,23 @@ rangeaxis <- c(0,1)
 groups <- 10
 plotCalibration(data=data, cOutcome=cOutcome, predRisk=predRisk1, groups=groups, rangeaxis=rangeaxis, plottitle = 'Model 1 (Without GRS)')
 legend('topleft', legend = c('P for goodness of fit 0.679'), bty = 'n', cex = .6, inset = .01)
-
-
-
+par(opar)
+opar <- par(no.readonly = TRUE)
+par(mfrow=c(2,3))
+riskScore6 <- riskScore(weights=riskmodel6, data=data, cGenPreds=cGenPred6, Type="unweighted")
+rangexaxis <- c(0,10)
+rangeyaxis <- c(0,1)
+xlabel <- "Risk score"
+ylabel <- "Predicted risk"
+plotRiskscorePredrisk(data=data, riskScore=riskScore6, predRisk=predRisk6, plottitle='Model 1: Risk score versus predicted risk', xlabel=xlabel, ylabel=ylabel, rangexaxis=rangexaxis, rangeyaxis=rangeyaxis)
+par(opar)
+opar <- par(no.readonly = TRUE)
+par(mfrow=c(2, 3))
+labels <- c("without genetic factors", "with genetic factors")
+plotROC(data=data, cOutcome=cOutcome, predrisk=cbind(predRisk1,predRisk6), labels=labels, plottitle='Model 1')
+par(opar)
+cutoff <- c(0,.40,.80,1)
+reclassification(data=data, cOutcome=cOutcome, predrisk1=predRisk1, predrisk2=predRisk6, cutoff)
 
 
 
