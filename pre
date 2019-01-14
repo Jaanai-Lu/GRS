@@ -27,3 +27,10 @@ model2 <- glm(disease ~ age + sex + grs,family = binomial(),data = data2)
 summary(model2)
 coef(model2)
 exp(coef(model2))
+
+model1$nationality[model1$nationality == 2] <- "Kazakh"
+model1$nationality[model1$nationality == 3] <- "Mongolian"
+model1$nationality[model1$nationality == 4] <- "Russian"
+model1$nationality[model1$nationality == 5] <- "Tibetan"
+model1$nationality[model1$nationality == 1] <- "Others"
+model1$nationality[model1$nationality == 6] <- "Others"
